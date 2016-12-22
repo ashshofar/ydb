@@ -41,8 +41,8 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <img alt="" src="img/avatar1_small.jpg">
-                          <span class="username">Jhon Doue</span>
+                          <img alt="" src="<?php echo base_url(); ?>assets/img/avatar-mini.jpg">
+                          <span class="username"><?php echo $pengguna->nama ?></span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
@@ -50,7 +50,7 @@
                           <li><a href="#"><i class=" icon-suitcase"></i>Profile</a></li>
                           <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
                           <li><a href="#"><i class="icon-bell-alt"></i> Notification</a></li>
-                          <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                          <li><a href="<?php echo base_url(); ?>/login/logout"><i class="icon-key"></i> Log Out</a></li>
                       </ul>
                   </li>
                   <!-- user login dropdown end -->
@@ -64,9 +64,27 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a href="index.html">
+                      <a href="<?php echo base_url(); ?>/site/dashboard">
                           <i class="icon-dashboard"></i>
                           <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<?php echo base_url(); ?>/topic">
+                          <i class="icon-book"></i>
+                          <span>Topic</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<?php echo base_url(); ?>/organization">
+                          <i class="icon-group"></i>
+                          <span>Organization</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<?php echo base_url(); ?>/cp">
+                          <i class="icon-user"></i>
+                          <span>Contact Person</span>
                       </a>
                   </li>
 
@@ -77,27 +95,18 @@
       <!--sidebar end-->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper site-min-height">
+          
               <!-- page start-->
-              Page content goes here
+              <?php echo $output;?>
               <!-- page end-->
-          </section>
+          
       </section>
       <!--main content end-->
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2013 &copy; FlatLab by VectorLab.
-              <a href="#" class="go-top">
-                  <i class="icon-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end-->
+     
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script> -->
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
@@ -106,6 +115,8 @@
 
     <!--common script for all pages-->
     <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
+
+    
 
 
   </body>
