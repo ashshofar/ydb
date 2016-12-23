@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2016 at 10:17 AM
+-- Generation Time: Dec 23, 2016 at 07:57 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -97,6 +97,30 @@ INSERT INTO `topic` (`id_topic`, `topic`, `detail`) VALUES
 (12, 'Topic 2 ', 'dsfjslkjf'),
 (13, 'Topic 3 ', 'sdsadasdasd');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `level` int(1) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `nama`, `level`, `status`) VALUES
+('aaa', '827ccb0eea8a706c4c34a16891f84e7b', 'aaa', 1, 1),
+('aaa2', '827ccb0eea8a706c4c34a16891f84e7b', 'aaa', 1, 1),
+('angeu', '827ccb0eea8a706c4c34a16891f84e7b', 'Anggraini Sariastuti', 2, 1),
+('ikhsan', '827ccb0eea8a706c4c34a16891f84e7b', 'Ikhsan Nugraha Ash Shofar', 1, 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -118,6 +142,12 @@ ALTER TABLE `organization`
 --
 ALTER TABLE `topic`
   ADD PRIMARY KEY (`id_topic`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables

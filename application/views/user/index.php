@@ -57,7 +57,7 @@
                                             <td>
                                                   <?php echo anchor('user/edit/'.$t->username,'<button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button>'); ?>
                                                   <?php 
-                                                      if ($level == 1){
+                                                      if ($pengguna->level == 1){
                                                         echo anchor('user/delete/'.$t->username,'<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>');  
                                                       }
                                                   ?>
