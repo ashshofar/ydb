@@ -35,10 +35,10 @@
                                             <td><?php echo $t->topic ?></td>
                                             <td><?php echo $t->detail ?></td>
                                             <td>
-                                                  <?php echo anchor('topic/edit/'.$t->id_topic,'<button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button>'); ?>
+                                                  <?php echo anchor('topic/edit/'.$t->id_topic,'<button class="btn btn-primary btn-xs"><i class="icon-pencil"> Edit</i></button>'); ?>
                                                   <?php 
-                                                      if ($level == 1){
-                                                        echo anchor('topic/delete/'.$t->id_topic,'<button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>');  
+                                                      if ($pengguna->level == 1){
+                                                        echo anchor('topic/delete/'.$t->id_topic,'<button class="btn btn-danger btn-xs"><i class="icon-trash "> Delete</i></button>');  
                                                       }
                                                   ?>
                                             </td>

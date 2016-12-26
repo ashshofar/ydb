@@ -5,10 +5,10 @@
               <div class="col-lg-4">
                       <section class="panel">
                           <header class="panel-heading">
-                              <h2>Filter</h2>
+                              <h2>Filter by Topic</h2>
                           </header>
                           <div class="panel-body">
-                              <form class="form-horizontal" role="form">
+                              <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(). 'frontend/filter'; ?>">
                                   <div class="form-group">
                                       <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Topic</label>
                                       <div class="col-lg-10">
@@ -26,6 +26,7 @@
                                   <div class="form-group">
                                       <div class="col-lg-offset-2 col-lg-10">
                                           <button type="submit" class="btn btn-danger">Search</button>
+                                          <?php echo anchor('frontend/','<button class="btn btn-default" type="button">Cancel Filter</button>'); ?>
                                       </div>
                                   </div>
                               </form>
@@ -60,8 +61,8 @@
                                             <td><?php echo $t->programme ?></td>
                                             <td><?php echo $t->address ?></td>
                                             <td>
-                                                  <?php echo anchor('organization/profile/'.$t->id_organization,'<button class="btn btn-info btn-xs"><i class="icon-eye-open"> Profile </i></button>'); ?>
-                                                  <?php echo anchor('organization/contact/'.$t->id_organization,'<button class="btn btn-danger btn-xs"><i class="icon-group"></i> View Contact </button>'); ?>
+                                                  <?php echo anchor('frontend/profile/'.$t->id_organization,'<button class="btn btn-info btn-xs"><i class="icon-eye-open"> Profile </i></button>'); ?>
+                                                  <?php echo anchor('frontend/contact/'.$t->id_organization,'<button class="btn btn-danger btn-xs"><i class="icon-group"></i> Contact Person </button>'); ?>
                                                   </td>
                                           </tr>
                                       <?php } ?>

@@ -32,7 +32,7 @@
               <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
           </div>
           <!--logo start-->
-          <a href="index.html" class="logo" >Youth<span>database</span></a>
+          <a href="<?php echo base_url(); ?>/site/dashboard" class="logo" >Youth<span>database</span></a>
           <div class="top-nav ">
               <ul class="nav pull-right top-menu">
                   <li>
@@ -86,6 +86,13 @@
                           <i class="icon-user"></i>
                           <span>Contact Person</span>
                       </a>
+                  </li>
+                  <li>
+                    <?php 
+                      if ($pengguna->level == 1){
+                        echo anchor('/user','<i class="icon-user"></i><span>User</span>');  
+                      }
+                      ?>
                   </li>
 
               </ul>

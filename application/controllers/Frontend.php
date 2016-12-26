@@ -5,6 +5,7 @@ class Frontend extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('M_organization');
+		$this->load->model('M_cp');
 		error_reporting(E_ALL ^(E_NOTICE | E_WARNING));
         $this->output->set_template('frontend');
 	}
@@ -16,66 +17,50 @@ class Frontend extends CI_Controller{
 		$this->load->view('frontend/index', $data);
 	}
 
-	function create(){
-		$user = $this->session->userdata('username');
-		$data['level'] = $this->session->userdata('level');
-		$data['pengguna'] = $this->M_login->dataUser($user);
-
-		$this->load->view('topic/create', $data);
-	}
-
-	function save(){
-		$topic = $this->input->post('topic');
-		$detail = $this->input->post('detail');
-		
-		$data = array(
-			'topic' => $topic,
-			'detail' => $detail
-			);
-		$this->M_topic->input_data('topic',$data);
-		redirect('topic/index');
-	}
-
-	function delete($id){
-		$user = $this->session->userdata('username');
-		$data['level'] = $this->session->userdata('level');
-		$data['pengguna'] = $this->M_login->dataUser($user);
-
-		if($data['level'] != 1){
-			redirect('topic/index');
-		}else{
-			$where = array('id_topic' => $id);
-			$this->M_topic->delete('topic', $where);
-			redirect('topic/index');
-		}
-	}
-
-	function edit($id){
-		$user = $this->session->userdata('username');
-		$data['level'] = $this->session->userdata('level');
-		$data['pengguna'] = $this->M_login->dataUser($user);
-
-		$where = array('id_topic' => $id);
-		$data['topic'] = $this->M_topic->edit('topic', $where)->result();
-		$this->load->view('topic/edit',$data);
-	}
-
-	function update(){
-		$id = $this->input->post('id');
-		$topic = $this->input->post('topic');
-		$detail = $this->input->post('detail');
-		
-		$data = array(
-			'id_topic' => $id,
-			'topic' => $topic,
-			'detail' => $detail
-		);
+	function filter(){
+		$topic = $this->input->post('topicid');
+		$data['topic'] = $this->M_organization->getalltopic();
 
 		$where = array(
-			'id_topic' => $id
+			'topicid' => $topic
 		);
 
-		$this->M_topic->update('topic', $where, $data);
-		redirect('topic/index');
+		$data['organization'] = $this->M_organization->filtershowdata($where);
+		$this->load->view('frontend/index', $data);
 	}
+
+	function profile($id){
+		$where = array('id_organization' => $id);
+		$data['organization'] = $this->M_organization->edit('organization', $where)->result();
+		$this->load->view('frontend/profile',$data);
+	}
+
+	function contact($id){
+		$where = array('id_organization' => $id);
+		$data['organization'] = $this->M_organization->edit('organization', $where)->result();
+
+		$wherecp = array('organizationid' => $id);
+		$data['cp'] = $this->M_organization->edit('cp', $wherecp)->result();
+
+		$this->load->view('frontend/contact', $data);
+	}
+
+	function contactlist(){
+		$data['cp'] = $this->M_cp->showdata();
+		$data['organization'] = $this->M_cp->getallorganization();
+		$this->load->view('frontend/contactlist', $data);
+	}
+
+	function filtercontactlist(){
+		$contactlist = $this->input->post('organizationid');
+		$data['organization'] = $this->M_cp->getallorganization();
+
+		$where = array(
+			'organizationid' => $contactlist
+		);
+
+		$data['cp'] = $this->M_cp->filtershowdata($where);
+		$this->load->view('frontend/contactlist', $data);
+	}
+
 }

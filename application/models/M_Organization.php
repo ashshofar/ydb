@@ -20,6 +20,21 @@ class M_organization extends CI_Model{
 			}
 	}
 
+	function filtershowdata($topic){
+		$this->db->select('*');
+		$this->db->from('organization');
+		$this->db->where($topic);
+		$this->db->join('topic', 'organization.topicid = topic.id_topic');
+
+		$query = $this->db->get();
+			if ($query->num_rows() > 0){
+				foreach ($query->result() as $data) {
+					$organization[] = $data;
+				}
+			return $organization;
+			}
+	}
+
 	function input_data($table, $data){
 		$this->db->insert($table, $data);
 	}
@@ -39,7 +54,7 @@ class M_organization extends CI_Model{
 	}
 
 	function getalltopic(){
-		$query = $this->db->query('SELECT * FROM topic');
+		$query = $this->db->query('SELECT * FROM topic ORDER BY topic ASC');
 		return $query->result();
 	}
 

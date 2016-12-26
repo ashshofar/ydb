@@ -1,6 +1,4 @@
-          <section class="wrapper">
-              <!-- page start-->
-              <div class="row">
+          <div class="row">
                   <aside class="profile-nav col-lg-3">
                       <section class="panel">
                       <?php foreach($organization as $t){ ?>
@@ -19,9 +17,8 @@
                           </div>
 
                           <ul class="nav nav-pills nav-stacked">
-                              <?php echo anchor('organization/profile/'.$t->id_organization,'<li><i class="icon-user"></i> Profile</a></li>'); ?>
-                              <?php echo anchor('organization/contact/'.$t->id_organization,'<li><i class="icon-calendar"></i> Contact Person</a></li>'); ?>
-                              <?php echo anchor('organization/changelogo/'.$t->id_organization,'<li><i class="icon-pencil"></i> Change Logo</a></li>'); ?>
+                              <?php echo anchor('frontend/profile/'.$t->id_organization,'<li><i class="icon-user"></i> Profile</a></li>'); ?>
+                              <?php echo anchor('frontend/contact/'.$t->id_organization,'<li><i class="icon-calendar"></i> Contact Person</a></li>'); ?>
                           </ul>
 
                       </section>
@@ -88,8 +85,7 @@
 
               <!-- page end-->
           </section>
-      </section>
-      <!--main content end-->
+      
       
   </section>
 

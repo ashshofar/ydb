@@ -89,25 +89,38 @@ class User extends CI_Controller{
 	}
 
 	function update(){
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$nama 	  = $this->input->post('nama');
-		$level    = $this->input->post('level');
-		$status   = 1;
-		
-		$data = array(
-			'username' => $username,
-			'password' => $password,
-			'nama' => $nama,
-			'level' => $level,
-			'status' => $status
-			);
+		$this->form_validation->set_rules('password', 'Password', 'required|md5');
+		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
 
-		$where = array(
-			'username' => $username
-		);
+		if($this->form_validation->run()==false)
+			{
+				$user = $this->session->userdata('username');
+				$data['level'] = $this->session->userdata('level');
+				$data['pengguna'] = $this->M_login->dataUser($user);
+				
+				$this->load->view('user/edit');
+			}else{
+				$username = $this->input->post('username');
+				$password = $this->input->post('password');
+				$nama 	  = $this->input->post('nama');
+				$level    = $this->input->post('level');
+				$status   = 1;
+				
+				$data = array(
+					'username' => $username,
+					'password' => $password,
+					'nama' => $nama,
+					'level' => $level,
+					'status' => $status
+					);
 
-		$this->M_user->update('topic', $where, $data);
-		redirect('user/index');
-	}
+				$where = array(
+					'username' => $username
+				);
+
+				$this->M_user->update('user', $where, $data);
+				redirect('user/index');
+			}
+
+		}
 }

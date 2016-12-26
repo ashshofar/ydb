@@ -1,8 +1,7 @@
     <link href="<?php echo base_url(); ?>assets/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
           
-          <section class="wrapper">
-              <!-- page start-->
+          <!-- page start-->
               <div class="row">
                   <aside class="profile-nav col-lg-3">
                       <section class="panel">
@@ -22,9 +21,8 @@
                           </div>
 
                           <ul class="nav nav-pills nav-stacked">
-                              <?php echo anchor('organization/profile/'.$t->id_organization,'<li><i class="icon-user"></i> Profile</a></li>'); ?>
-                              <?php echo anchor('organization/contact/'.$t->id_organization,'<li><i class="icon-calendar"></i> Contact Person</a></li>'); ?>
-                              <?php echo anchor('organization/changelogo/'.$t->id_organization,'<li><i class="icon-pencil"></i> Change Logo</a></li>'); ?>
+                              <?php echo anchor('frontend/profile/'.$t->id_organization,'<li><i class="icon-user"></i> Profile</a></li>'); ?>
+                              <?php echo anchor('frontend/contact/'.$t->id_organization,'<li><i class="icon-calendar"></i> Contact Person</a></li>'); ?>
                           </ul>
                       <?php } ?>
                       </section>
@@ -65,15 +63,15 @@
 
               <!-- page end-->
           </section>
-      </section>
       <!--main content end-->
       
   </section>
 
     <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
     <script src="assets/jquery-knob/js/jquery.knob.js"></script>
-    
-  <script>
+  
+  <script>  
+
       //knob
       $(".knob").knob();
 

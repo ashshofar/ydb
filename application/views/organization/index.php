@@ -47,7 +47,7 @@
                                                   <?php echo anchor('organization/profile/'.$t->id_organization,'<button class="btn btn-info btn-xs"><i class="icon-eye-open"> Profile </i></button>'); ?>
                                                   <?php echo anchor('organization/edit/'.$t->id_organization,'<button class="btn btn-primary btn-xs"><i class="icon-pencil"></i> Edit </button>'); ?>
                                                   <?php 
-                                                    if ($level == 1){
+                                                    if ($pengguna->level == 1){
                                                       echo anchor('organization/delete/'.$t->id_organization,'<button class="btn btn-danger btn-xs"><i class="icon-trash "></i> Delete </button>'); 
                                                     }
                                                   ?>

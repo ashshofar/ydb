@@ -38,13 +38,14 @@
               </button>
 
               <!--logo start-->
-              <a href="index.html" class="logo" >Youth<span>Database</span></a>
+              <a href="<?php echo base_url(); ?>/frontend/" class="logo" >Youth<span>Database</span></a>
               <!--logo end-->
               <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="index.html">Dashboard</a></li>
+                      <li><a href="<?php echo base_url(); ?>/frontend">Organization List </a></li>
+                      <li><a href="<?php echo base_url(); ?>/frontend/contactlist">Contact Person List </a></li>
                       <li>
-                          <a href="#">
+                          <a href="<?php echo base_url(); ?>/login">
                               Login
                           </a>
                       </li>
